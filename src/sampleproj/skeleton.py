@@ -18,6 +18,8 @@ Note: This skeleton file can be safely removed if not needed!
 import argparse
 import sys
 import logging
+from importlib.resources import read_text
+from configparser import ConfigParser
 
 from sampleproj import __version__
 
@@ -102,6 +104,15 @@ def main(args):
     setup_logging(args.loglevel)
     _logger.debug("Starting crazy calculations...")
     print("The {}-th Fibonacci number is {}".format(args.n, fib(args.n)))
+
+    # ==================================ACCESSING CONFIG FROM HERE =============================================
+    config = ConfigParser()
+    config.read(read_text("sampleproj", "config/test.ini"))
+    _logger.info(f"Successfully read config [input][SomeNumber]={config['input']['SomeNumber']}")
+    _logger.info(f"Successfully read config [input][HelloWorldConfig]={config['input']['HelloWorldConfig']}")
+
+    # ==========================================================================================================
+
     _logger.info("Script ends here")
 
 
