@@ -107,7 +107,7 @@ def main(args):
 
     # ==================================ACCESSING CONFIG FROM HERE =============================================
     config = ConfigParser()
-    config.read(read_text("sampleproj", "config/test.ini"))
+    config.read(read_text("sampleproj.config", "test.ini"))
     _logger.info(f"Successfully read config [input][SomeNumber]={config['input']['SomeNumber']}")
     _logger.info(f"Successfully read config [input][HelloWorldConfig]={config['input']['HelloWorldConfig']}")
 
